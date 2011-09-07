@@ -2,6 +2,6 @@
 ## Title: |c0200dd00KdO|r Tab Menu|r
 ## Notes: Follow the white rabbit
 ## Author: Cadayron
-## Version: 1.3
-## RequiredDeps: ElvUI
+## Version: 2.0
+## RequiredDeps: Tukui
 core.lua
