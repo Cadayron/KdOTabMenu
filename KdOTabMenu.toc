@@ -1,7 +1,8 @@
-## Interface: 40200
+## Interface: 40300
 ## Title: |c0200dd00KdO|r Tab Menu|r
+## Version: 3.0
 ## Notes: Follow the white rabbit
 ## Author: Cadayron
-## Version: 2.0
-## RequiredDeps: Tukui
+## Dependencies: ElvUI
+
 core.lua
