@@ -97,10 +97,10 @@ for i = 1, 4 do
 		TTALoot:Point("BOTTOMRIGHT",tab[i], E:Scale(-4), E:Scale(4))
 		TTALoot:SetTexture("Interface\\AddOns\\KdOTabMenu\\media\\AL")
 		
-		tab[i]:SetScript("OnEnter", function()
-			GameTooltip:SetOwner(tab[i], "ANCHOR_TOP", 0, E:Scale(6));
+		tab[i]:SetScript("OnEnter", function(self)
+			GameTooltip:SetOwner(self, "ANCHOR_TOP", 0, E:Scale(6));
 			GameTooltip:ClearAllPoints()
-			GameTooltip:SetPoint("BOTTOM", tab[i], "TOP", 0, E.mult)
+			GameTooltip:SetPoint("BOTTOM", self, "TOP", 0, E.mult)
 			GameTooltip:ClearLines()
 			if TLock[i] == true then
 				GameTooltip:AddDoubleLine("AtlasLoot : ", HIDE,1,1,1,selectioncolor)
@@ -109,13 +109,13 @@ for i = 1, 4 do
 			end
 			GameTooltip:Show()
 			if TLock[i] == true then return end;
-			E.ToggleTab(tab[i], TabIn[i], 1); 
+			E.ToggleTab(self, TabIn[i], 1); 
 		end) 
 		
-		tab[1]:SetScript("OnLeave", function()
+		tab[1]:SetScript("OnLeave", function(self)
 			GameTooltip:Hide()
 			if TLock[i] == true then return end;
-			E.ToggleTab(tab[i], TabIn[i], 1);
+			E.ToggleTab(self, TabIn[i], 1);
 			
 		end)
 		
@@ -140,10 +140,10 @@ for i = 1, 4 do
 		TTOmen:Point("BOTTOMRIGHT",tab[i], E:Scale(-4), E:Scale(4))
 		TTOmen:SetTexture("Interface\\AddOns\\KdOTabMenu\\media\\Omen")
 		
-		tab[i]:SetScript("OnEnter", function()
-			GameTooltip:SetOwner(tab[i], "ANCHOR_TOP", 0, E:Scale(6));
+		tab[i]:SetScript("OnEnter", function(self)
+			GameTooltip:SetOwner(self, "ANCHOR_TOP", 0, E:Scale(6));
 			GameTooltip:ClearAllPoints()
-			GameTooltip:SetPoint("BOTTOM", tab[i], "TOP", 0, E.mult)
+			GameTooltip:SetPoint("BOTTOM", self, "TOP", 0, E.mult)
 			GameTooltip:ClearLines()
 			if TLock[i] == true then
 				GameTooltip:AddDoubleLine("Omen : ", HIDE,1,1,1,selectioncolor)
@@ -152,13 +152,13 @@ for i = 1, 4 do
 			end
 			GameTooltip:Show()
 			if TLock[i] == true then return end;
-			E.ToggleTab(tab[i], TabIn[i], 2);
+			E.ToggleTab(self, TabIn[i], 2);
 		end) 
 		
-		tab[i]:SetScript("OnLeave", function()
+		tab[i]:SetScript("OnLeave", function(self)
 			GameTooltip:Hide()
 			if TLock[i] == true then return end;
-			E.ToggleTab(tab[i], TabIn[i], 2);
+			E.ToggleTab(self, TabIn[i], 2);
 		end)
 		
 		tab[i]:SetScript("OnMouseDown", function()
@@ -171,8 +171,47 @@ for i = 1, 4 do
 			ToggleFrame(Omen.Anchor);
 			E.UpdateTabLock(TTOmen, TLock[i], 2);
 		end)
+	
+	elseif i == 3 then 	-- Skada
 		
+		-- Set Texture
+		TTSkada = tab[i]:CreateTexture(nil, "ARTWORK")
+		TTSkada:Point("TOPLEFT", tab[i], E:Scale(4), E:Scale(-4))
+		TTSkada:Point("BOTTOMRIGHT",tab[i], E:Scale(-4), E:Scale(4))
+		TTSkada:SetTexture("Interface\\AddOns\\KdOTabMenu\\media\\Recount")
 		
+		tab[i]:SetScript("OnEnter", function(self)
+			GameTooltip:SetOwner(self, "ANCHOR_TOP", 0, E:Scale(6));
+			GameTooltip:ClearAllPoints()
+			GameTooltip:SetPoint("BOTTOM", self, "TOP", 0, E.mult)
+			GameTooltip:ClearLines()
+			if TLock[i] == true then
+				GameTooltip:AddDoubleLine("Skada : ", HIDE,1,1,1,selectioncolor)
+			else
+				GameTooltip:AddDoubleLine("Skada : ", SHOW,1,1,1,selectioncolor)
+			end
+			GameTooltip:Show() 
+			if TLock[i] == true then return end; 
+			E.ToggleTab(self, TabIn[i], 3); 
+		end) 
+		
+		tab[i]:SetScript("OnLeave", function(self) 
+			GameTooltip:Hide()
+			if TLock[i] == true then return end;
+			E.ToggleTab(self, TabIn[i], 3); 
+		end)
+		
+		tab[i]:SetScript("OnMouseDown", function()
+			GameTooltip:ClearLines()
+			if TLock[i] == true then
+				GameTooltip:AddDoubleLine("Skada : ", SHOW,1,1,1,selectioncolor)
+			else
+				GameTooltip:AddDoubleLine("Skada : ", HIDE,1,1,1,selectioncolor)
+			end
+			Skada:ToggleWindow()
+			E.UpdateTabLock(TTSkada, TLock[i], 3); 
+		end)	
+	--[[	
 	elseif i == 3 then 	-- Recount
 		
 		-- Set Texture
@@ -212,7 +251,7 @@ for i = 1, 4 do
 			ToggleFrame(Recount.MainWindow); 
 			Recount.RefreshMainWindow(); 
 			E.UpdateTabLock(TTRecount, TLock[i], 3); 
-		end)
+		end) ]]--
 		
 	elseif i == 4 then 		-- Encounter Journal
 	
@@ -222,10 +261,10 @@ for i = 1, 4 do
 		TTEncJourn:Point("BOTTOMRIGHT",tab[i], E:Scale(-4), E:Scale(4))
 		TTEncJourn:SetTexture("Interface\\AddOns\\KdOTabMenu\\media\\EJ")
 		
-		tab[i]:SetScript("OnEnter", function()
-			GameTooltip:SetOwner(tab[i], "ANCHOR_TOP", 0, E:Scale(6));
+		tab[i]:SetScript("OnEnter", function(self)
+			GameTooltip:SetOwner(self, "ANCHOR_TOP", 0, E:Scale(6));
 			GameTooltip:ClearAllPoints()
-			GameTooltip:SetPoint("BOTTOM", tab[i], "TOP", 0, E.mult)
+			GameTooltip:SetPoint("BOTTOM", self, "TOP", 0, E.mult)
 			GameTooltip:ClearLines()
 			if TLock[i] == true then
 				GameTooltip:AddDoubleLine("Encounter Journal : ", HIDE,1,1,1,selectioncolor)
@@ -234,13 +273,13 @@ for i = 1, 4 do
 			end
 			GameTooltip:Show()  
 			if TLock[i] == true then return end; 
-			E.ToggleTab(tab[i], TabIn[i], 4); 
+			E.ToggleTab(self, TabIn[i], 4); 
 		end) 
 		
-		tab[i]:SetScript("OnLeave", function()
+		tab[i]:SetScript("OnLeave", function(self)
 			GameTooltip:Hide()
 			if TLock[i] == true then return end; 
-			E.ToggleTab(tab[i], TabIn[i], 4); 
+			E.ToggleTab(self, TabIn[i], 4); 
 		end)
 		
 		tab[i]:SetScript("OnMouseDown", function()
