@@ -9,7 +9,7 @@ local E, L, DF = unpack(ElvUI); -- Import Functions/Constants, Config, Locales
 font = DF.core.font            			-- Font to be used for button text
 fontsize = 12                       	-- Size of font for button text
 tabwidth = 27    	-- Width of chatframe
-tabspacing = DF.actionbar.buttonspacing
+tabspacing = DF.actionbar.bar1.buttonspacing
 chatheight = DF.core.panelHeight    		-- Height of chatframe
 tabheight = 23 -- Height of tab
 firstposition = ((chatheight-((tabheight*4)+(tabspacing*5)))/2)+tabheight/4  --Set the positon for default chat height size
@@ -89,8 +89,10 @@ tab = CreateFrame("Frame", "tab", RightChatPanel) 	-- Tab creation
 				
 				tab[i]:SetScript("OnEnter", function(self)
 					GameTooltip:SetOwner(self, "ANCHOR_TOP", 0, E:Scale(6));
+					-- GameTooltip:SetOwner(RightChatPanel, "ANCHOR_NONE", 0, E:Scale(6));
 					GameTooltip:ClearAllPoints()
 					GameTooltip:SetPoint("BOTTOM", self, "TOP", 0, E.mult)
+					-- GameTooltip:SetPoint('BOTTOMRIGHT', RightChatPanel, 'TOPRIGHT', 0, 18)
 					GameTooltip:ClearLines()
 					if TLock[i] == true then
 						GameTooltip:AddDoubleLine("AtlasLoot : ", HIDE,1,1,1,selectioncolor)
