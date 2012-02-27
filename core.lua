@@ -1,4 +1,4 @@
-local E, L, DF = unpack(ElvUI); -- Import Functions/Constants, Config, Locales
+local E, L, P, DF = unpack(ElvUI); -- Import Functions/Constants, Config, Locales
 
 ----------------------------------------------------------------------
 -- 							By Cadayron
@@ -6,11 +6,11 @@ local E, L, DF = unpack(ElvUI); -- Import Functions/Constants, Config, Locales
 ----------------------------------------------------------------------
 
  -- Config variables
-font = DF.core.font            			-- Font to be used for button text
+font = P.general.font            			-- Font to be used for button text
 fontsize = 12                       	-- Size of font for button text
 tabwidth = 27    	-- Width of chatframe
-tabspacing = DF.actionbar.bar1.buttonspacing
-chatheight = DF.core.panelHeight    		-- Height of chatframe
+tabspacing = P.actionbar.bar1.buttonspacing
+chatheight = P.general.panelHeight    		-- Height of chatframe
 tabheight = 23 -- Height of tab
 firstposition = ((chatheight-((tabheight*4)+(tabspacing*5)))/2)+tabheight/4  --Set the positon for default chat height size
 selectioncolor = {r = 23/255,g = 132/255,b = 209/255}
