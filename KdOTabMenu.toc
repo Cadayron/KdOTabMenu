@@ -1,6 +1,6 @@
 ## Interface: 40300
 ## Title: |c0200dd00KdO|r Tab Menu|r
-## Version: 3.3
+## Version: 3.4
 ## Notes: Follow the white rabbit
 ## Author: Cadayron
 ## Dependencies: ElvUI
