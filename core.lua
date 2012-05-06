@@ -1,4 +1,5 @@
-local E, L, P, DF = unpack(ElvUI); -- Import Functions/Constants, Config, Locales
+local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB
+--local E, L, P, DF = unpack(ElvUI); -- Import Functions/Constants, Config, Locales
 
 ----------------------------------------------------------------------
 -- 							By Cadayron
